@@ -8,9 +8,9 @@ router.post('/', (req, res) => {
     if (!from || !to || typeof amount !== 'number') {
       return res.status(400).json({ error: 'Dados de transferência inválidos' });
     }
-    if (!from || !to) {
+    /* if (!from || !to) {
       return res.status(400).json({ error: 'Usuário remetente ou destinatário não encontrado' });
-    }
+    } */
     if (typeof amount !== 'number') {
       return res.status(400).json({ error: 'Tipo do campo amount tem que ser number' });
     }
