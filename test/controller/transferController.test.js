@@ -39,6 +39,32 @@ describe('Transfer Controller', () => {
             sinon.restore();
         });
 
+        it('Using mocks: From and To exist and return 201', async () => {
+            const transferServiceMock = sinon.stub(transferService, 'transfer')
+            transferServiceMock.returns({
+                from: "Bruce",
+                to: "Selina",
+                amount: 1000,
+                date: new Date().toISOString()
+            });
+
+            const response = await request(app)
+                .post('/transfers')
+                .send({
+                    from: "Bruce",
+                    to: "Selina",
+                    amount: 1000
+                });
+
+            expect(response.status).to.equal(201);
+            expect(response.body).to.have.property('from', 'Bruce');
+            expect(response.body).to.have.property('to', 'Selina');
+            expect(response.body).to.have.property('amount', 1000);
+            expect(response.body).to.have.property('date');
+
+            sinon.restore();
+        });
+
         it('From and To not exist and Amount is not a number return 400', async () => {
             const response = await request(app)
                 .post('/transfers')
