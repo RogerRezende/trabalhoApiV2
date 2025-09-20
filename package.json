@@ -1,0 +1,25 @@
+{
+  "name": "trabalho-api",
+  "version": "1.0.0",
+  "description": "Esta API permite registro, login, consulta de usuários e transferências.",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha test/**/*.test.js --timeout 10000",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Roger Rezende Ribeiro Santos",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "express": "^5.1.0",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "chai": "^6.0.1",
+    "mocha": "^11.7.2",
+    "sinon": "^21.0.0",
+    "supertest": "^7.1.4"
+  }
+}
