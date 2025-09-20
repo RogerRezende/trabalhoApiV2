@@ -8,7 +8,7 @@ function transfer({ from, to, amount }) {
   const sender = findUserByUsername(from);
   const recipient = findUserByUsername(to);
   if (!sender || !recipient) {
-    throw new Error('Usuário remetente, destinatário não encontrado');
+    throw new Error('Usuário remetente ou destinatário não encontrado');
   }
   if (!recipient.favorecido && amount >= 5000) {
     throw new Error('Transferências acima de R$ 5.000,00 só são permitidas para favorecidos');
